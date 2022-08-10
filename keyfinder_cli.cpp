@@ -316,7 +316,7 @@ int main(int argc, char** argv)
     // Only return a key when we don't have silence - rule 12: Be quiet!
     if (key != KeyFinder::SILENCE)
     {
-        stream << "9" << std::endl;
+        std::cout << "9" << std::endl;
         std::cout << selected_notation[key] << std::endl;
     }
 
