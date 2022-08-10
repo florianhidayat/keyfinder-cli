@@ -240,12 +240,12 @@ int main(int argc, char** argv)
     // Default to the standard key notation
     auto selected_notation = KeyNotation::standard;
 
-    struct option options[] =
-    {
-        {"notation", required_argument, 0, 'n'},
-        {"help",     no_argument,       0, 'h'},
-        {0, 0, 0, 0}
-    };
+    // struct option options[] =
+    // {
+    //     {"notation", required_argument, 0, 'n'},
+    //     {"help",     no_argument,       0, 'h'},
+    //     {0, 0, 0, 0}
+    // };
 
     opterr = 0;
     std::cout << "I'm gonna run" << std::endl;
