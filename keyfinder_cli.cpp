@@ -248,6 +248,7 @@ int main(int argc, char** argv)
     };
 
     opterr = 0;
+    std::cout << "I'm gonna run" << std::endl;
 
     char c;
     while ((c = getopt_long(argc, argv, "n:h", options, nullptr)) != -1)
