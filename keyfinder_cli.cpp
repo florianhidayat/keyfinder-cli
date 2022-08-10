@@ -248,7 +248,6 @@ int main(int argc, char** argv)
     // };
 
     opterr = 0;
-    std::cout << "I'm gonna run" << std::endl;
 
     // char c;
     // while ((c = getopt_long(argc, argv, "n:h", options, nullptr)) != -1)
@@ -271,48 +270,36 @@ int main(int argc, char** argv)
     //             return 1;
     //         }
 
-    //         std::cout << "selecting notation" << std::endl;
     //         selected_notation = KeyNotation::mappings[optarg];
-    //         std::cout << "selected notation" << std::endl;
     //         break;
     //     }
     // }
-    std::cout << "1" << std::endl;
 
     // There should be at least one argument left for the filename. We can
     // check for this by seeing if the opt parser's last index is larger than
     // the arg count.
     if (optind >= argc)
     {
-        std::cout << "2" << std::endl;
         display_usage(std::cerr);
         return 1;
     }
 
-    std::cout << "3" << std::endl;
     char* file_path = argv[optind];
 
-    std::cout << "4" << std::endl;
     KeyFinder::KeyFinder key_finder;
     KeyFinder::AudioData audio_data;
     KeyFinder::key_t key;
-    std::cout << "5" << std::endl;
 
     // Hide av* warnings and errors
     av_log_set_callback([](void *, int, const char*, va_list) {});
 
-    std::cout << "6" << std::endl;
-    
     try
     {
         fill_audio_data(file_path, audio_data);
-        std::cout << "7" << std::endl;
         key = key_finder.keyOfAudio(audio_data);
-        std::cout << "8" << std::endl;
     }
     catch (std::exception &e)
     {
-        std::cout << "7err" << std::endl;
         std::cerr << e.what() << std::endl;
         return 1;
     }
@@ -320,7 +307,6 @@ int main(int argc, char** argv)
     // Only return a key when we don't have silence - rule 12: Be quiet!
     if (key != KeyFinder::SILENCE)
     {
-        std::cout << "9" << std::endl;
         std::cout << selected_notation[key] << std::endl;
     }
 
