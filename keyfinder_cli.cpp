@@ -250,33 +250,33 @@ int main(int argc, char** argv)
     opterr = 0;
     std::cout << "I'm gonna run" << std::endl;
 
-    char c;
-    while ((c = getopt_long(argc, argv, "n:h", options, nullptr)) != -1)
-    {
-        switch (c)
-        {
-        case 'h':
-            display_usage(std::cout);
-            return 0;
+    // char c;
+    // while ((c = getopt_long(argc, argv, "n:h", options, nullptr)) != -1)
+    // {
+    //     switch (c)
+    //     {
+    //     case 'h':
+    //         display_usage(std::cout);
+    //         return 0;
 
-        case '?':
-            display_usage(std::cerr);
-            return 0;
+    //     case '?':
+    //         display_usage(std::cerr);
+    //         return 0;
 
-        case 'n':
-            std::cout << "is n" << std::endl;
-            if (KeyNotation::mappings.find(optarg) == KeyNotation::mappings.end())
-            {
-                std::cerr << "Invalid key notation" << std::endl;
-                return 1;
-            }
+    //     case 'n':
+    //         std::cout << "is n" << std::endl;
+    //         if (KeyNotation::mappings.find(optarg) == KeyNotation::mappings.end())
+    //         {
+    //             std::cerr << "Invalid key notation" << std::endl;
+    //             return 1;
+    //         }
 
-            std::cout << "selecting notation" << std::endl;
-            selected_notation = KeyNotation::mappings[optarg];
-            std::cout << "selected notation" << std::endl;
-            break;
-        }
-    }
+    //         std::cout << "selecting notation" << std::endl;
+    //         selected_notation = KeyNotation::mappings[optarg];
+    //         std::cout << "selected notation" << std::endl;
+    //         break;
+    //     }
+    // }
     std::cout << "1" << std::endl;
 
     // There should be at least one argument left for the filename. We can
