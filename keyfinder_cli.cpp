@@ -273,42 +273,42 @@ int main(int argc, char** argv)
             break;
         }
     }
-    stream << "1" << std::endl;
+    std::cout << "1" << std::endl;
 
     // There should be at least one argument left for the filename. We can
     // check for this by seeing if the opt parser's last index is larger than
     // the arg count.
     if (optind >= argc)
     {
-        stream << "2" << std::endl;
+        std::cout << "2" << std::endl;
         display_usage(std::cerr);
         return 1;
     }
 
-    stream << "3" << std::endl;
+    std::cout << "3" << std::endl;
     char* file_path = argv[optind];
 
-    stream << "4" << std::endl;
+    std::cout << "4" << std::endl;
     KeyFinder::KeyFinder key_finder;
     KeyFinder::AudioData audio_data;
     KeyFinder::key_t key;
-    stream << "5" << std::endl;
+    std::cout << "5" << std::endl;
 
     // Hide av* warnings and errors
     av_log_set_callback([](void *, int, const char*, va_list) {});
 
-    stream << "6" << std::endl;
+    std::cout << "6" << std::endl;
     
     try
     {
         fill_audio_data(file_path, audio_data);
-        stream << "7" << std::endl;
+        std::cout << "7" << std::endl;
         key = key_finder.keyOfAudio(audio_data);
-        stream << "8" << std::endl;
+        std::cout << "8" << std::endl;
     }
     catch (std::exception &e)
     {
-        stream << "7err" << std::endl;
+        std::cout << "7err" << std::endl;
         std::cerr << e.what() << std::endl;
         return 1;
     }
