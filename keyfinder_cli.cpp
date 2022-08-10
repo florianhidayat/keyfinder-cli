@@ -264,13 +264,16 @@ int main(int argc, char** argv)
             return 0;
 
         case 'n':
+            std::cout << "is n" << std::endl;
             if (KeyNotation::mappings.find(optarg) == KeyNotation::mappings.end())
             {
                 std::cerr << "Invalid key notation" << std::endl;
                 return 1;
             }
 
+            std::cout << "selecting notation" << std::endl;
             selected_notation = KeyNotation::mappings[optarg];
+            std::cout << "selected notation" << std::endl;
             break;
         }
     }
